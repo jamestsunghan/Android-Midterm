@@ -42,6 +42,16 @@ class HomeFragment : Fragment() {
             }
         })
 
+        viewModel.posts.observe(viewLifecycleOwner, Observer {
+            if(it == null){
+                Log.d("JJ", "this is null")
+            }else if(it.isEmpty()){
+                Log.d("JJ", "empty list $it")
+            }else{
+                Log.d("JJ", "list $it")
+            }
+        })
+
         return binding.root
     }
 

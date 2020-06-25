@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.james.midterm.data.CallBack
 import com.james.midterm.data.DataSource
+import com.james.midterm.data.LoadStatus
 import com.james.midterm.data.Post
 
 class HomeViewModel : ViewModel() {
@@ -14,6 +15,9 @@ class HomeViewModel : ViewModel() {
     private val _navigateToPublish = MutableLiveData<Boolean>(false)
     val navigateToPublish : LiveData<Boolean> get() = _navigateToPublish
 
+    private val _status = MutableLiveData<LoadStatus>()
+    val status : LiveData<LoadStatus> get() = _status
+
     init{
         DataSource.getPosts(object :
             CallBack {
@@ -22,6 +26,10 @@ class HomeViewModel : ViewModel() {
             }
 
             override fun onCallBackBoolean(isPosted: Boolean) {
+            }
+
+            override fun onCallbackStatus(status: LoadStatus) {
+                _status.value = status
             }
         })
     }

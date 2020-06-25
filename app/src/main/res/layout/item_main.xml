@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="post" type="com.james.midterm.data.Post" />
+
+        <variable
+            name="post"
+            type="com.james.midterm.data.Post" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +23,7 @@
             android:layout_marginEnd="@dimen/normal"
             android:background="@drawable/bg_title"
             android:gravity="center"
+            android:letterSpacing="0.15"
             android:maxLines="2"
             android:text="@{post.title}"
             android:textSize="18sp"
@@ -32,62 +36,67 @@
             android:id="@+id/post_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:letterSpacing="0.15"
+            android:maxLines="2"
             android:text="@{post.author.name}"
             android:textSize="14sp"
-            android:maxLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/post_title"
             app:layout_constraintStart_toStartOf="@+id/post_title"
-            android:layout_marginTop="@dimen/small"
-            tools:text="JJ abraham"/>
+            app:layout_constraintTop_toBottomOf="@+id/post_title"
+            tools:text="JJ abraham" />
 
         <TextView
             android:id="@+id/post_tag"
             android:layout_width="wrap_content"
-            android:text="@{post.tag}"
-            android:background="@drawable/bg_tag"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_tag"
+            app:tag="@{post.tag}"
+            android:letterSpacing="0.15"
+            android:maxLines="2"
             android:paddingStart="@dimen/normal"
             android:paddingEnd="@dimen/normal"
+            android:text="@{post.tag}"
             android:textSize="14sp"
-            android:maxLines="2"
-            app:layout_constraintTop_toTopOf="@+id/post_author"
             app:layout_constraintEnd_toEndOf="@+id/post_title"
-            tools:text="Movie"/>
+            app:layout_constraintTop_toTopOf="@+id/post_author"
+            tools:text="Movie" />
 
         <TextView
             android:id="@+id/post_create_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:time="@{post.create_time}"
-            android:textSize="14sp"
-            android:maxLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/post_author"
-            app:layout_constraintStart_toStartOf="@+id/post_title"
             android:layout_marginTop="@dimen/small"
-            tools:text="2020-06-01 12:12:12"/>
+            android:letterSpacing="0.15"
+            android:maxLines="2"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/post_title"
+            app:layout_constraintTop_toBottomOf="@+id/post_author"
+            app:time="@{post.create_time}"
+            tools:text="2020-06-01 12:12:12" />
 
         <TextView
             android:id="@+id/post_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:layout_marginTop="@dimen/small"
+            android:letterSpacing="0.15"
             android:maxLines="2"
             android:text="@{post.content}"
-            app:layout_constraintTop_toBottomOf="@+id/post_create_time"
-            app:layout_constraintStart_toStartOf="@+id/post_title"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/post_title"
-            android:layout_marginTop="@dimen/small"
-            tools:text="this is JJ abraham speaking"/>
+            app:layout_constraintStart_toStartOf="@+id/post_title"
+            app:layout_constraintTop_toBottomOf="@+id/post_create_time"
+            tools:text="this is JJ abraham speaking" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_margin="@dimen/normal"
             android:background="@color/colorPrimary"
-            app:layout_constraintTop_toBottomOf="@+id/post_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="@dimen/normal"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_content" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.Timestamp.now
-import com.james.midterm.data.DataSource
-import com.james.midterm.data.Author
-import com.james.midterm.data.CallBack
-import com.james.midterm.data.Post
+import com.james.midterm.data.*
 
 class PublishViewModel : ViewModel() {
     val title = MutableLiveData<String>()
@@ -17,7 +14,15 @@ class PublishViewModel : ViewModel() {
     private val authorDefault = Author(name = "James", id = "midterm", email = "james@midterm.com")
 
     private val _sendSuccess = MutableLiveData<Boolean>(false)
-    val sendSuccess : LiveData<Boolean> get() = _sendSuccess
+
+    val sendSuccess : LiveData<Boolean>
+        get() = _sendSuccess
+
+
+    private val _status = MutableLiveData<LoadStatus>()
+
+    val status : LiveData<LoadStatus>
+        get() = _status
 
 
     fun sendPost(){
@@ -30,12 +35,17 @@ class PublishViewModel : ViewModel() {
                 content = content.value as String,
                 create_time = now(),
                 tag = tag.value as String)
+
             DataSource.publishPost(post, object: CallBack {
                 override fun onCallback(posts: List<Post>) {
                 }
 
                 override fun onCallBackBoolean(isPosted: Boolean) {
                     _sendSuccess.value = isPosted
+                }
+
+                override fun onCallbackStatus(status: LoadStatus) {
+                    _status.value = status
                 }
             })
         }

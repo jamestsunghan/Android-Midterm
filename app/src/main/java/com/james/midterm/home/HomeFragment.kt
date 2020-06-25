@@ -29,17 +29,11 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        binding.viewModel = viewModel
 
         val adapter = HomeAdapter()
         binding.mainRecycler.adapter = adapter
-
-        viewModel.posts.observe(viewLifecycleOwner, Observer{
-            it?.let{
-                adapter.submitList(it)
-                Log.d("JJ", "list size: ${it.size} list: $it ")
-            }
-        })
-
+        
 
         return binding.root
     }

@@ -19,10 +19,7 @@ fun convertTimestampToDate(textView: TextView, time: Timestamp){
 
 @BindingAdapter("posts")
 fun bindPosts(view: RecyclerView, list: List<Post>?){
-    val adapter = HomeAdapter()
-    view.adapter = adapter
-    list?.let{
-        adapter.submitList(list)
-    }
+    val adapter = view.adapter as HomeAdapter
+    adapter.submitList(list)
 
 }

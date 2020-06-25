@@ -1,10 +1,13 @@
 package com.james.midterm.publish
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.Timestamp.now
+import com.james.midterm.MyApp
+import com.james.midterm.R
 import com.james.midterm.data.*
 
 class PublishViewModel : ViewModel() {
@@ -27,7 +30,7 @@ class PublishViewModel : ViewModel() {
 
     fun sendPost(){
         if(title.value ==null || tag.value == null || content.value == null){
-            Log.d("JJ","not complete yet")
+            Toast.makeText(MyApp.appContext, MyApp.appContext.getText(R.string.not_complete), Toast.LENGTH_SHORT).show()
         }else{
             val post = Post(
                 author = authorDefault,

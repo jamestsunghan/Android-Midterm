@@ -5,4 +5,5 @@
     <string name="enter_content">想說的話都可以打在這裡歐</string>
     <string name="send_post">送出文章</string>
     <string name="no_post">目前暫無文章</string>
+    <string name="not_complete">沒有寫完歐</string>
 </resources>

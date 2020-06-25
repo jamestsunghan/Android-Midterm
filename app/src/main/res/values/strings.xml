@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Midterm</string>
+    <string name="enter_title">請輸入標題</string>
+    <string name="enter_tag">請輸入標籤</string>
+    <string name="enter_content">想說的話都可以打在這裡歐</string>
+    <string name="send_post">送出文章</string>
 </resources>

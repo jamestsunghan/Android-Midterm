@@ -18,7 +18,7 @@
             android:layout_marginStart="@dimen/normal"
             android:layout_marginTop="@dimen/normal"
             android:layout_marginEnd="@dimen/normal"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_title"
             android:gravity="center"
             android:maxLines="2"
             android:text="@{post.title}"

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.james.midterm.R
 import com.james.midterm.databinding.FragmentHomeBinding
 
@@ -33,7 +34,13 @@ class HomeFragment : Fragment() {
 
         val adapter = HomeAdapter()
         binding.mainRecycler.adapter = adapter
-        
+
+        viewModel.navigateToPublish.observe(viewLifecycleOwner, Observer{
+            if(it){
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPublishFragment())
+                viewModel.navigateComplete()
+            }
+        })
 
         return binding.root
     }

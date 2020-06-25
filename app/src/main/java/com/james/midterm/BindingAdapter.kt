@@ -12,7 +12,7 @@ import java.util.*
 
 @BindingAdapter("time")
 fun convertTimestampToDate(textView: TextView, time: Timestamp){
-    val formatter = SimpleDateFormat("yyyy-MM-dd HH-mm-ss")
+    val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
     val date = Date(time.seconds * 1000L)
     textView.text = formatter.format(date)
 }
@@ -21,5 +21,4 @@ fun convertTimestampToDate(textView: TextView, time: Timestamp){
 fun bindPosts(view: RecyclerView, list: List<Post>?){
     val adapter = view.adapter as HomeAdapter
     adapter.submitList(list)
-
 }

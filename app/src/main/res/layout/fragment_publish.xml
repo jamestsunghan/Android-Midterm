@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.james.midterm.publish.PublishViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_dialog"
+        android:padding="@dimen/normal"
+        tools:context=".publish.PublishFragment">
+
+        <EditText
+            android:id="@+id/edit_title"
+            android:layout_width="240dp"
+            android:text="@={viewModel.title}"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal"
+            android:layout_marginTop="@dimen/normal"
+            android:layout_marginEnd="@dimen/normal"
+            android:hint="@string/enter_title"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_tag"
+            android:layout_width="0dp"
+            android:text="@={viewModel.tag}"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal"
+            android:hint="@string/enter_tag"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="@+id/edit_title"
+            app:layout_constraintStart_toStartOf="@+id/edit_title"
+            app:layout_constraintTop_toBottomOf="@+id/edit_title" />
+
+        <EditText
+            android:id="@+id/edit_content"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:text="@={viewModel.content}"
+            android:textSize="14sp"
+            android:layout_marginTop="@dimen/normal"
+            android:hint="@string/enter_content"
+            android:gravity="bottom"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            app:layout_constraintEnd_toEndOf="@+id/edit_title"
+            app:layout_constraintStart_toStartOf="@+id/edit_title"
+            app:layout_constraintTop_toBottomOf="@+id/edit_tag" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/send_post"
+            android:textSize="14sp"
+            android:onClick="@{() -> viewModel.sendPost()}"
+            android:background="@color/grey_dddddd"
+            android:layout_marginTop="@dimen/normal"
+            android:layout_marginBottom="@dimen/normal"
+            app:layout_constraintEnd_toEndOf="@+id/edit_title"
+            app:layout_constraintStart_toStartOf="@+id/edit_title"
+            app:layout_constraintTop_toBottomOf="@+id/edit_content"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

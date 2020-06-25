@@ -5,5 +5,17 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.james.midterm.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_publishFragment"
+            app:destination="@id/publishFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/publishFragment"
+        android:name="com.james.midterm.publish.PublishFragment"
+        android:label="PublishFragment" />
+    <action
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@id/homeFragment"
+        app:popUpTo="@id/navigation" />
 </navigation>
